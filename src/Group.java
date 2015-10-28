@@ -36,12 +36,12 @@ public class Group implements IGroup {
 
     @Override
     public String getID() {
-        return null;
+        return this.id;
     }
 
     @Override
     public void setID(String id) {
-
+        this.id = id;
     }
 
     @Override
