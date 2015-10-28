@@ -6,6 +6,8 @@ import java.util.List;
 
 public class User implements IUser {
 
+    public String id;
+
     // Constructor
 
     public User() {
@@ -74,7 +76,18 @@ public class User implements IUser {
 
     @Override
     public int compareTo(Identifiable i) {
-        return 0;
+        if (i instanceof User) {
+            User j = (User)i;
+            if (this.getID().compareTo(j.getID()) < 0) {
+                return -1;
+            } else if (this.getID().compareTo(j.getID()) > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return (this.getID().compareTo(i.getID()));
+        }
     }
 
     @Override

@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Group implements IGroup {
 
+    public String id;
+
     // Constructor
 
     public Group() {
@@ -44,7 +46,18 @@ public class Group implements IGroup {
 
     @Override
     public int compareTo(Identifiable i) {
-        return 0;
+        if (i instanceof Group) {
+            Group j = (Group)i;
+            if (this.getID().compareTo(j.getID()) < 0) {
+                return -1;
+            } else if (this.getID().compareTo(j.getID()) > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return (this.getID().compareTo(i.getID()));
+        }
     }
 
     @Override
